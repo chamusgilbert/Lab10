@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Lab10
@@ -39,8 +40,58 @@ namespace Lab10
                 }
             }
 
+            PresentList(listOfMovie);
 
-
+        }
+        public static void PresentList(List<Movie> moviess)
+        {
+            Console.WriteLine("Pick a movie type");
+            string userType = Console.ReadLine().ToLower();
+            if (userType == "action" || userType == "adventure")
+            {
+                foreach (Movie item in moviess)
+                {
+                    if (item.category == "Action/Adventure")
+                    {
+                        Console.WriteLine(item.title);
+                    }
+                }
+            }
+            else if (userType == "sci-fi")
+            {
+                foreach (Movie item in moviess)
+                {
+                    if (item.category == "Sci-Fi")
+                    {
+                        Console.WriteLine(item.title);
+                    }
+                }
+            }
+            else if (userType == "comedy")
+            {
+                foreach (Movie item in moviess)
+                {
+                    if (item.category == "Comedy")
+                    {
+                        Console.WriteLine(item.title);
+                    }
+                }
+            }
+            else if (userType == "animation")
+            {
+                foreach (Movie item in moviess)
+                {
+                    if (item.category == "Animation")
+                    {
+                        Console.WriteLine(item.title);
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("I do not have that file in our directory");
+                PresentList(moviess);
+            }
         }
     }
 }
